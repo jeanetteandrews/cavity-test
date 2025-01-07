@@ -4,7 +4,7 @@ let svgGroups = [];
 let currentGroups = [];
 let targetGroups = [];
 let isHovering = false;
-const letters = "C^vI tY".split("");
+let letters = "C^vI tY".split(""); // Default text
 let noiseOffset = 0;
 
 const svgPath = "M18.5 11C18.5 3 13.5858 7.35786 13 1.5C17.491 4.81946 20.9999 8 25 10C29 12 39.5 5.5 39.5 5.5C39.5 5.5 30.8066 13.5 33.8066 13C36.8066 12.5 40.8066 21.5 40.8066 21.5C39 18.0038 28.1863 14.791 27 17C23.6918 21.783 32.8362 25.4225 35.3066 30L33.8066 41.5C33.118 27.5 25.3665 24.3834 19.5 22.5C12.4184 27.4494 10.5 30 8.30656 41.5C3.49999 31 15.2645 27.2176 15.5 19.5L0.306641 22.5C0.306641 22.5 18.5 19 18.5 11Z";
@@ -27,6 +27,15 @@ function handleFontUpload(event) {
 
 // Add event listener for font upload
 document.getElementById('fontUploader').addEventListener('change', handleFontUpload);
+
+// Function to handle text input change
+function handleTextChange(event) {
+  letters = event.target.value.split(""); // Update the letters array with the new text
+  new p5(sketch1); // Restart the sketch with the new text
+}
+
+// Add event listener for text input
+document.getElementById('textInput').addEventListener('input', handleTextChange);
 
 // Function to parse SVG path into points
 function parseSVGPath(pathData, numPoints = 100) {
@@ -60,6 +69,11 @@ function sketch1(p) {
       p.createCanvas(p.windowWidth, p.windowHeight);
       let xOffset = p.windowWidth / 2 - font.textBounds(letters.join(""), 0, 0, 220).w / 2;
       let yOffset = p.windowHeight / 2 + 50; // Center vertically
+  
+      letterGroups = []; // Reset letterGroups
+      svgGroups = []; // Reset svgGroups
+      currentGroups = []; // Reset currentGroups
+      targetGroups = []; // Reset targetGroups
   
       for (let letter of letters) {
         if (letter === " ") {
