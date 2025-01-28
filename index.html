@@ -6,22 +6,29 @@
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
     <link rel="icon" type="image/svg+xml" href="cavity.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>cavity</title>
   </head>
   <body>
-    <input type="file" id="fontUploader" accept=".otf, .ttf" />
-    <label for="textInput">Enter your text:</label>
-    <input type="text" id="textInput" value="C^vI tY" />
     <div id="div1">
-        
-        <!-- Input for font upload -->
-        <p> hello pls upload an .otf or .ttf font file :)</p>
-        <p> there's a bug and i wish not to fix it. pls refresh the browser each time u wanna try a new font</p>
-        
+        <p id ="caption">an essay about going to the dentist <br> click anywhere to begin</p>
         <canvas id="canvas1"></canvas>
         <p style="display:none;" id="p5_loading"></p>
     </div>
+    <div id="info-container">
+      <div id="info-button">?</div>
+      <div id="info-content">
+        <button id="close">×</button>
+        <p>I went to the dentist and got grossed out & got gross stuff taken out of me. <br>
+          <br>
+          I went to the dentist and thought: the thing that’s gross about a cavity is that it eats you, and that it smells. Cavities make our hard surfaces vulnerable. Cavities remind us that our mouths are always full — we imagine those bacteria as invaders, but they’re always there. It’s disgusting to mix bodies like this, smush them together; it’s disgusting to notice that that’s already happening. The fact of it is disgusting; the noticing is disgusting; I become disgusting in noticing it. <br>
+          <br>
+          One heart of disgust is the fear that we are not ourselves, or that we are not contained in the ways we think we are. At the dentist we arrive at this heart. <br>
+          <br>
+          Essay by <a href="https://www.instagram.com/what.a.blob/" target="_blank">Ahana Ganguly</a><br>Code by <a href="https://jeanetteandre.ws" target="_blank">Jeanette Andrews</a></p>
+      </div>
+    </div>
+    <div id="div2"><canvas id="canvas2"></canvas></div>
     <script src="script.js"></script>
   </body>
 </html>
